@@ -9,7 +9,7 @@ public enum TileType{
     PLAYER_ROAD(false, true),
     BRIDGE(false, true),
     STOP(false, true),
-    GARAGE(false, false), // because why cars should go on garage?
+    GARAGE(false, false),
     FACILITY(false, false);
 
     private final boolean buildable;
