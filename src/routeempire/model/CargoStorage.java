@@ -9,6 +9,10 @@ public class CargoStorage{
     // but we still can change entries and values
     private final int capacityPerType;
 
+    public CargoStorage(){
+        this(DEFAULT_CAPACITY);
+    }
+
     public CargoStorage(int capacityPerType){
         this.stored = new HashMap<>();
         this.capacityPerType = capacityPerType;

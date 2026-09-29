@@ -28,6 +28,7 @@ public abstract class Facility{
         return new ArrayList<>(occupiedTiles);
     }
 
+    // returns types (GOODS, WOOD) that facility consumes / produces
     public abstract List<CargoType> getProducedCargo();
     public abstract List<CargoType> getConsumedCargo();
     public abstract int getProductionRate();
