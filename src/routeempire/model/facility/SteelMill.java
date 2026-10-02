@@ -1,8 +1,8 @@
 package routeempire.model.facility;
-import routeempire.model.CargoType;
-import routeempire.model.map.Position;
 import java.util.ArrayList;
 import java.util.List;
+import routeempire.model.CargoType;
+import routeempire.model.map.Position;
 
 public class SteelMill extends SecondaryFacility{
     private static final int CONVERSION_RATE = 2;
@@ -18,7 +18,8 @@ public class SteelMill extends SecondaryFacility{
         return produced;
     }
 
-    @Override List<CargoType> getConsumedCargo(){
+    @Override 
+    public List<CargoType> getConsumedCargo(){
         List<CargoType> consumed = new ArrayList<>();
         consumed.add(CargoType.IRON_ORE);
         return consumed;

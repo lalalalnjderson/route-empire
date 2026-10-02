@@ -1,11 +1,11 @@
 package routeempire.model.bridge;
-import routeempire.model.map.Position;
 import java.util.ArrayList;
 import java.util.List;
+import routeempire.model.map.Position;
 
 public class Bridge{
     private final BridgeType type;
-    private final Postion start;
+    private final Position start;
     private final Position end;
     private final List<Position> spannedTiles;
 

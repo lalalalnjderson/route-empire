@@ -1,8 +1,8 @@
 package routeempire.model.facility;
-import routeempire.model.CargoType;
-import routeempire.model.map.Position;
 import java.util.ArrayList;
 import java.util.List;
+import routeempire.model.CargoType;
+import routeempire.model.map.Position;
 
 public class IronOreMine extends PrimaryFacility{
     private static final int PRODUCTION_RATE = 20;

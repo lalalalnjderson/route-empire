@@ -1,15 +1,17 @@
 package routeempire.model.facility;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import routeempire.model.CargoType;
 import routeempire.model.Stop;
 import routeempire.model.map.Position;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class PrimaryFacility extends Facility{
-    private double productionAccumulator;
-    protected PrimaryFacility(String name, FacilityType type, List<Postition> occupiedTiles){
+    private final Map<CargoType, Double> productionAccumulators;
+    protected PrimaryFacility(String name, FacilityType type, List<Position> occupiedTiles){
         super(name, type, occupiedTiles);
-        this.productionAccumulator = 0.0;
+        this.productionAccumulators = new HashMap<>();
     }
 
     @Override
@@ -22,14 +24,16 @@ public abstract class PrimaryFacility extends Facility{
         if (linkedStops.isEmpty()){
             return;
         }
-        for (CargoType cargo : getProducedCargo){
+        for (CargoType cargo : getProducedCargo()) {
+            double acc = productionAccumulators.getOrDefault(cargo, 0.0);
             double productionPerTick = (double) getProductionRate() / ticksPerMonth;
-            productionAccumulator += productionPerTick;
-            int wholeUnits = (int) productionAccumulator;
-            if (wholeUnits > 0){
-                productionAccumulator -= wholeUnits;
+            acc += productionPerTick;
+            int wholeUnits = (int) acc;
+            if (wholeUnits > 0) {
+                acc -= wholeUnits;
                 distributeToStops(cargo, wholeUnits, linkedStops);
             }
+            productionAccumulators.put(cargo, acc);
         }
     }
 
