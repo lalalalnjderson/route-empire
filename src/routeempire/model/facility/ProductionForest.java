@@ -1,14 +1,14 @@
 package routeempire.model.facility;
-import routeempire.model.CargoType;
-import routeempire.model.map.Position;
 import java.util.ArrayList;
 import java.util.List;
+import routeempire.model.CargoType;
+import routeempire.model.map.Position;
 
 public class ProductionForest extends PrimaryFacility{
     private static final int PRODUCTION_RATE = 20;
     
     public ProductionForest(String name, List<Position> occupiedTiles){
-        super(name, FacilityType.FOREST, occupiedTiles);
+        super(name, FacilityType.PRODUCTION_FOREST, occupiedTiles);
     }
 
     @Override

@@ -1,9 +1,9 @@
 package routeempire.model.vehicle;
+import java.util.ArrayList;
+import java.util.List;
 import routeempire.model.CargoType;
 import routeempire.model.Garage;
 import routeempire.model.map.Position;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Vehicle{
     private static int nextId = 1;
@@ -90,11 +90,11 @@ public class Vehicle{
         this.cargoOriginStop = originStop;
     }
 
-    // important: but what if there is not enough space on the stop to accept all cargo?
-    public int unloadCargo(){
-        int unloaded = cargoAmount;
-        cargoAmount = 0;
-        return unloaded;
+    // check available space in GameLogic
+    public int unloadCargo(int amount){
+        int actuallyUnloaded = Math.min(amount, cargoAmount);
+        cargoAmount -= actuallyUnloaded;
+        return actuallyUnloaded;
     }
 
     public void incrementDistance(){

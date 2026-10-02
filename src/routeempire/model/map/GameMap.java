@@ -14,7 +14,7 @@ public class GameMap{
 
         for(int i=0; i<height; i++){
             for(int j=0; j<width; j++){
-                tiles[i][j] = new Tile(TileType.EMPTY, new Position(i, j));
+                tiles[i][j] = new Tile(TileType.EMPTY, new Position(j, i));
             }
         }
     }
@@ -31,7 +31,7 @@ public class GameMap{
         if (!isInBounds(x, y)){
             return null;
         }
-        return tiles[x][y];
+        return tiles[y][x];
     }
 
     public Tile getTile(Position pos){

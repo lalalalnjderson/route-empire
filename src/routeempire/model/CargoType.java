@@ -12,8 +12,8 @@ public enum CargoType{
     private final String displayName;
     private final int baseRate;
 
-    CargoType(String diplayName, int baseRate){
-        this.displayName = diplayName;
+    CargoType(String displayName, int baseRate){
+        this.displayName = displayName;
         this.baseRate = baseRate;
     }
 

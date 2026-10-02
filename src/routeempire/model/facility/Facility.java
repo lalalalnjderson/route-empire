@@ -1,16 +1,16 @@
 package routeempire.model.facility;
+import java.util.ArrayList;
+import java.util.List;
 import routeempire.model.CargoType;
 import routeempire.model.Stop;
 import routeempire.model.map.Position;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Facility{
     private final String name;
     private final FacilityType type;
     private final List<Position> occupiedTiles;
 
-    protected Facility(String name, FacilityType type, List<Postition> occupiedTiles){
+    protected Facility(String name, FacilityType type, List<Position> occupiedTiles){
         this.name = name;
         this.type = type;
         this.occupiedTiles = new ArrayList<>(occupiedTiles);
