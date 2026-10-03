@@ -49,7 +49,7 @@ public class Economy{
         return capital >= 0;
     }
 
-    public long calculateDeliveyPayment(CargoType cargo, int quantity, double distance){
+    public long calculateDeliveryPayment(CargoType cargo, int quantity, double distance){
         return Math.round(quantity * cargo.getBaseRate() * (1.0 + distance * 0.05));
     }
 
